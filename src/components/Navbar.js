@@ -6,10 +6,14 @@ const Navbar = () => {
 
   const handleClick = () => setClick(!click);
 
+  const closeNav = () => {
+    setClick(false);
+  };
+
   return (
     <>
       <div className="navbar">
-        <div className="shop-logo">
+        <div className="shop-logo" onClick={closeNav}>
           <img src="images/Cheapero200x200.png" alt="cheapero" />
         </div>
         <div className="navbar-container">

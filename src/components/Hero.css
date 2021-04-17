@@ -6,9 +6,10 @@
   overflow-x: hidden;
 }
 .hero-banner {
+  background-image: url("../img/hero.jpg");
+  background-size: cover;
   width: 100vw;
   height: 90vh;
-  object-fit: cover;
 }
 
 .hero-content {

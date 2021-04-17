@@ -6,7 +6,8 @@ const Hero = () => {
   return (
     <>
       <div className="hero">
-        <img src="images/hero.jpg" alt="hero" className="hero-banner" />
+        <div className="hero-banner" />
+
         <div className="hero-content">
           <h1>NEW SEASON ARRIVALS</h1>
           <Button value="Shop Now" />
