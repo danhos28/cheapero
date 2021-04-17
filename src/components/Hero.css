@@ -1,0 +1,43 @@
+.hero {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  width: auto;
+}
+.hero-banner {
+  width: 100vw;
+  height: 90vh;
+  object-fit: cover;
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: -20%;
+  animation: dropdown 2s 1s ease-in-out forwards;
+}
+.hero-content > h1 {
+  font-size: calc(3vw + 1rem);
+  color: rgb(255, 255, 255);
+  text-shadow: 2px 2px 8px #4e4e4e;
+}
+
+.hero-content button {
+  background-color: #54111f;
+  color: rgb(255, 248, 234);
+  border-color: #330b14;
+}
+
+.hero-content button:hover {
+  background-color: #b31b3c;
+  border-color: #79192e;
+}
+
+@keyframes dropdown {
+  100% {
+    top: 40%;
+  }
+}

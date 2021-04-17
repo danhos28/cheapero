@@ -1,0 +1,16 @@
+button {
+  height: 40px;
+  width: 150px;
+  background: white;
+  border: 3px solid black;
+  color: black;
+  font-weight: bolder;
+  border-radius: 4px;
+  text-transform: uppercase;
+}
+
+button:hover {
+  cursor: pointer;
+  background: black;
+  color: white;
+}

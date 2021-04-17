@@ -1,0 +1,25 @@
+.home {
+  width: 80vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+
+  padding: 20px;
+}
+
+.home > h2 {
+  width: 100%;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 22px;
+  margin-bottom: 40px;
+}
+
+.products {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  flex-wrap: wrap;
+  row-gap: 20px;
+}

@@ -1,0 +1,26 @@
+.cards {
+  width: 300px;
+  height: 400px;
+  border-radius: 12px;
+  box-shadow: 2px 2px 5px gray;
+  display: flex;
+  flex-direction: column;
+  padding: 25px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cards-img {
+  width: 200px;
+  height: 200px;
+}
+
+.name {
+  font-weight: bold;
+  text-align: center;
+}
+
+.price {
+  text-align: center;
+  font-size: 12px;
+}
