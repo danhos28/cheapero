@@ -1,15 +1,29 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./App.css";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import { Home } from "./pages/Home";
+import Splash from "./pages/Splash";
 
 function App() {
+  const [splash, setSplash] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setSplash(false);
+    }, 2000);
+  });
   return (
     <>
-      <Navbar />
-      <Hero />
-      <Home />
+      {splash ? (
+        <Splash />
+      ) : (
+        <>
+          <Navbar />
+          <Hero />
+          <Home />
+        </>
+      )}
     </>
   );
 }
