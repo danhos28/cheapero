@@ -4,7 +4,6 @@
   display: flex;
   flex-direction: column;
   margin: auto;
-
   padding: 20px;
 }
 
@@ -12,7 +11,8 @@
   width: 100%;
   text-align: center;
   text-transform: uppercase;
-  font-size: calc(1vw + 0.5rem);
+  font-size: calc(1vw + 0.7rem);
+  font-weight: bold;
   margin-top: 20px;
   margin-bottom: 40px;
 }
