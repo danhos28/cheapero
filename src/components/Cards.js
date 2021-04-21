@@ -3,13 +3,15 @@ import Button from "./Button";
 import "./Cards.css";
 
 const Cards = (props) => {
+  const { name, price, desc, imgUrl } = props;
+
   return (
     <>
       <div className="cards">
-        <img src="images/bag-black.jpg" alt="items" className="cards-img" />
+        <img src={imgUrl} alt="items" className="cards-img" />
         <div className="item">
-          <p className="name">Large Capacity Outdoor Sport Bag</p>
-          <p className="price">$50.00</p>
+          <p className="name">{name}</p>
+          <p className="price">{price}</p>
         </div>
         <Button value="Add to cart" />
       </div>

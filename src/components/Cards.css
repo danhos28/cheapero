@@ -1,6 +1,6 @@
 .cards {
-  width: 300px;
-  height: 400px;
+  width: 250px;
+  height: 320px;
   border-radius: 12px;
   box-shadow: 2px 2px 5px gray;
   display: flex;
@@ -11,18 +11,23 @@
 }
 
 .cards-img {
-  width: 200px;
-  height: 200px;
+  width: 150px;
+  height: 150px;
+}
+
+@media screen and (max-width: 425px) {
 }
 
 .item {
-  height: 18%;
   display: flex;
+  height: 18%;
   flex-direction: column;
+
   justify-content: space-between;
 }
 
 .name {
+  font-size: 14px;
   font-weight: bold;
   text-align: center;
 }

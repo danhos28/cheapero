@@ -2,6 +2,7 @@ import React from "react";
 import Cards from "../components/Cards";
 import "./Home.css";
 import Aos from "aos";
+import itemList from "../items/ItemData.js";
 import "aos/dist/aos.css";
 
 export const Home = () => {
@@ -16,12 +17,15 @@ export const Home = () => {
           data-aos-duration="1000"
         >
           <div className="products">
-            <Cards />
-            <Cards />
-            <Cards />
-            <Cards />
-            <Cards />
-            <Cards />
+            {itemList.map((item) => {
+              return (
+                <Cards
+                  name={item.name}
+                  price={item.price}
+                  imgUrl={item.imgUrl[0]}
+                />
+              );
+            })}
           </div>
         </div>
       </div>
