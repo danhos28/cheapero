@@ -5,13 +5,14 @@
   flex-direction: column;
   margin: auto;
   padding: 20px;
+  position: relative;
 }
 
 .home > h2 {
   width: 100%;
   text-align: center;
   text-transform: uppercase;
-  font-size: calc(1vw + 0.7rem);
+  font-size: calc(1vw + 0.5rem);
   font-weight: bold;
   margin-top: 20px;
   margin-bottom: 40px;
@@ -24,4 +25,15 @@
   flex-wrap: wrap;
   column-gap: 15px;
   row-gap: 50px;
+}
+.modal {
+  top: 32px;
+  left: 0;
+  right: 0;
+  position: fixed;
+}
+@media screen and (max-width: 425px) {
+  .home > h2 {
+    font-size: calc(1vw + 0.7rem);
+  }
 }

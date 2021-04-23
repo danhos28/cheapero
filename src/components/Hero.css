@@ -24,8 +24,9 @@
   justify-content: space-around;
   align-items: center;
   position: absolute;
-  top: -50%;
-  animation: dropdown 2s 500ms ease-in-out forwards;
+  top: -30%;
+  opacity: 0;
+  animation: dropdown 2s ease-in-out forwards;
 }
 .hero-content > h1 {
   font-size: calc(3vw + 0.5rem);
@@ -53,6 +54,7 @@
 @keyframes dropdown {
   100% {
     top: 40%;
+    opacity: 1;
   }
 }
 

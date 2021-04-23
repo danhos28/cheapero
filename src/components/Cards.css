@@ -13,6 +13,13 @@
 .cards-img {
   width: 150px;
   height: 150px;
+  cursor: pointer;
+  transition: all 100ms ease-in;
+}
+
+.cards-img:hover {
+  transition: all 100ms ease-in;
+  transform: scale(1.07);
 }
 
 @media screen and (max-width: 425px) {

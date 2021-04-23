@@ -8,6 +8,7 @@ import Categories from './pages/Categories';
 
 function App() {
   const [splash, setSplash] = useState(true);
+  const [cart, setCart] = useState(0);
 
   useEffect(() => {
     setTimeout(() => {
@@ -20,10 +21,10 @@ function App() {
         <Splash />
       ) : (
         <>
-          <Navbar />
+          <Navbar counter={cart} />
           <Hero />
           <Categories />
-          <Home />
+          <Home setCart={setCart} cart={cart} />
         </>
       )}
     </>
