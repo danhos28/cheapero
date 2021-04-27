@@ -1,17 +1,41 @@
-import React, { useState } from 'react';
-import ItemDetails from '../pages/ItemDetails';
+import React from 'react';
 import Button from './Button';
 import './Cards.css';
+import { useDispatch, useSelector } from 'react-redux';
+import { addToCart, counter } from '../redux/cartItems';
 
 const Cards = (props) => {
-  const { name, price, desc, imgUrl } = props;
+  const dispatch = useDispatch();
+  const { cartItems } = useSelector((state) => state.cart);
+  const { id, name, price, imgUrl, setCart, setModalOpen, setModalId } = props;
 
   const handleCart = () => {
-    props.setCart(props.cart + 1);
+    setCart(props.cart + 1);
+
+    let items = cartItems.filter((item) => item.id === id);
+    if (items.length === 0) {
+      dispatch(
+        addToCart([
+          {
+            id,
+            name,
+            price,
+            imgUrl,
+            quantity: 1,
+          },
+        ])
+      );
+    } else {
+      let idx = cartItems.findIndex((item) => item.id === id);
+      dispatch(counter(idx));
+      // console.log(idx);
+      // console.log('already existed');
+    }
   };
 
   const modalHandler = () => {
-    props.setModalOpen(true);
+    setModalOpen(true);
+    setModalId(id);
   };
 
   return (

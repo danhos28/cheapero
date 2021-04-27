@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import './App.css';
 import Navbar from './components/Navbar';
-import Hero from './components/Hero';
 import { Home } from './pages/Home';
+import Cart from './pages/Cart';
 import Splash from './pages/Splash';
-import Categories from './pages/Categories';
 
 function App() {
   const [splash, setSplash] = useState(true);
@@ -17,16 +17,23 @@ function App() {
   });
   return (
     <>
-      {splash ? (
-        <Splash />
-      ) : (
-        <>
-          <Navbar counter={cart} />
-          <Hero />
-          <Categories />
-          <Home setCart={setCart} cart={cart} />
-        </>
-      )}
+      <Router>
+        {splash ? (
+          <Splash />
+        ) : (
+          <>
+            <Navbar counter={cart} />
+            <Switch>
+              <Route exact path="/">
+                <Home setCart={setCart} cart={cart} />
+              </Route>
+              <Route exact path="/cart">
+                <Cart setCart={setCart} cart={cart} />
+              </Route>
+            </Switch>
+          </>
+        )}
+      </Router>
     </>
   );
 }

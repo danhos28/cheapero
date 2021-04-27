@@ -1,0 +1,12 @@
+.items-container {
+  margin-top: 64px;
+}
+.cart-empty {
+  font-size: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  color: rgb(202, 202, 202);
+  height: calc(100vh - 64px);
+}

@@ -6,17 +6,22 @@ import itemList from '../items/ItemData.js';
 import 'aos/dist/aos.css';
 import ItemDetails from './ItemDetails';
 import { AnimatePresence } from 'framer-motion';
+import Hero from '../components/Hero';
+import Categories from './Categories';
 
 export const Home = (props) => {
   Aos.init();
 
   const [modalOpen, setModalOpen] = useState(false);
+  const [modalId, setModalId] = useState(1);
 
-  const handleCart = (cart) => {
-    console.log('add items: ' + cart);
-  };
+  const itemModal = itemList.filter((item) => item.id === modalId);
+  const { name, imgUrl, desc, price, colors } = itemModal[0];
+
   return (
     <>
+      <Hero />
+      <Categories />
       <div className="home">
         <h2>Latest Products</h2>
         <div
@@ -28,13 +33,15 @@ export const Home = (props) => {
             {itemList.map((item) => {
               return (
                 <Cards
+                  key={item.id}
+                  id={item.id}
                   name={item.name}
                   price={item.price}
                   imgUrl={item.imgUrl[0]}
-                  onCart={handleCart}
                   setCart={props.setCart}
                   cart={props.cart}
                   setModalOpen={setModalOpen}
+                  setModalId={setModalId}
                 />
               );
             })}
@@ -43,7 +50,17 @@ export const Home = (props) => {
         <AnimatePresence>
           {modalOpen && (
             <div className="modal">
-              <ItemDetails setModalOpen={setModalOpen} />
+              <ItemDetails
+                setModalOpen={setModalOpen}
+                itemId={modalId}
+                name={name}
+                imgUrl={imgUrl}
+                price={price}
+                desc={desc}
+                colors={colors}
+                setCart={props.setCart}
+                cart={props.cart}
+              />
             </div>
           )}
         </AnimatePresence>

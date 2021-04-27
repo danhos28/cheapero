@@ -15,9 +15,12 @@
   display: flex;
   align-items: center;
   width: 60%;
+  font-size: 13px;
+  font-weight: 800;
 }
 .shop-logo {
   cursor: pointer;
+  text-decoration: none;
 }
 
 .shop-logo > img {
@@ -33,16 +36,20 @@
 }
 
 .navbar-items > li {
-  font-size: 13px;
-  font-weight: 800;
   cursor: pointer;
 }
+.home-link {
+  text-decoration: none;
 
-.cart {
+  color: black;
+}
+.cart-link {
   display: flex;
   padding-left: 2vw;
   cursor: pointer;
   position: relative;
+  color: black;
+  text-decoration: none;
 }
 
 .counter {

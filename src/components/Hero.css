@@ -44,9 +44,11 @@
   min-height: 25px;
   min-width: 85px;
   width: calc(10vw + 10px);
+  transition: all 100ms ease-in;
 }
 
 .hero-content button:hover {
+  transition: all 100ms ease-in;
   background-color: #b31b3c;
   border-color: #79192e;
 }

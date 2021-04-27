@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './Navbar.css';
+import { Link } from 'react-router-dom';
 
 const Navbar = (props) => {
   const [click, setClick] = useState(false);
@@ -13,24 +14,26 @@ const Navbar = (props) => {
   return (
     <>
       <div className="navbar">
-        <div className="shop-logo" onClick={closeNav}>
+        <Link to="/" className="shop-logo" onClick={closeNav}>
           <img src="images/Cheapero200x200.png" alt="cheapero" />
-        </div>
+        </Link>
         <div className="navbar-container">
           <ul className={click ? 'navbar-items active' : 'navbar-items'}>
-            <li className="nav-link">Home</li>
+            <Link to="/" className="home-link">
+              <li className="nav-link">Home</li>
+            </Link>
             <li className="nav-link">Shop</li>
             <li className="nav-link">Contact</li>
             <li className="nav-link">Login</li>
           </ul>
-          <div className="cart">
-            <i class="fas fa-shopping-cart"></i>
+          <Link to="/cart" className="cart-link">
+            <i className="fas fa-shopping-cart"></i>
             {props.counter > 0 && (
               <div className="counter">
                 <p>{props.counter}</p>
               </div>
             )}
-          </div>
+          </Link>
           <div className="menu-icon" onClick={handleClick}>
             <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
           </div>

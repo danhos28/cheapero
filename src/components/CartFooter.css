@@ -1,0 +1,27 @@
+.cart-footer {
+  display: flex;
+  padding-left: 10vw;
+  padding-right: 10vw;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 -1px 8px rgb(196, 196, 196);
+  width: 100vw;
+  height: 15vh;
+  position: fixed;
+  bottom: 0;
+  background: white;
+  z-index: 1;
+}
+.cart-footer button {
+  width: 120px;
+  height: 40px;
+  font-size: 16px;
+}
+.cart-footer p {
+  font-size: 22px;
+  font-weight: bold;
+}
+.space {
+  height: 15vh;
+  width: 100vw;
+}

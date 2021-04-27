@@ -1,6 +1,6 @@
 .item-container {
   z-index: -1;
-  background: rgba(0, 0, 0, 0.164);
+  background: rgba(70, 66, 66, 0.164);
   width: 100vw;
   height: 100vh;
   display: flex;
@@ -14,14 +14,17 @@
   border-radius: 12px;
   display: flex;
   padding: 1%;
+  z-index: 999;
 }
 .item-img {
   flex: 1.5;
   padding: 5%;
+  display: flex;
+  align-items: center;
 }
 .item-img img {
   width: 100%;
-  height: 90%;
+  height: auto;
 }
 .item-desc-container {
   flex: 2;
