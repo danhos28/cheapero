@@ -1,0 +1,22 @@
+.offline {
+  display: flex;
+  width: 100vw;
+  height: 50px;
+  background: rgb(247, 227, 48);
+  z-index: 999;
+  position: fixed;
+  padding-left: 5vw;
+  justify-content: flex-start;
+  align-items: center;
+  column-gap: 2vw;
+}
+.offline-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+.offline-wrapper > h2 {
+  font-size: 1rem;
+}
+.offline-wrapper > p {
+  font-size: 0.75rem;
+}
