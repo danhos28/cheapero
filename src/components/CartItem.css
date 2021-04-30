@@ -12,6 +12,7 @@
 .item-name {
   font-weight: bold;
   width: 25vw;
+  font-size: 15px;
 }
 .fa-trash-alt {
   cursor: pointer;
