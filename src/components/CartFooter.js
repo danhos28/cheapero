@@ -9,7 +9,7 @@ function CartFooter() {
     <>
       <div className="space" />
       <div className="cart-footer">
-        <p>Total : {totalPriceState}$</p>
+        <p>Total : ${totalPriceState}.00</p>
         <Button value="Pay" />
       </div>
     </>

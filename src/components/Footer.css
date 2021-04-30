@@ -1,0 +1,81 @@
+.footer {
+  padding: 8vh 5vw 8vh 5vw;
+  height: auto;
+  background: #161616;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10vw;
+  border-bottom: 2px solid rgb(126, 0, 0);
+  flex-wrap: wrap;
+}
+.footer a {
+  font-weight: 400;
+  text-decoration: none;
+  color: white;
+  cursor: pointer;
+}
+.footer a:hover {
+  text-decoration: underline;
+}
+.overview,
+.company,
+.explore,
+.input-email {
+  display: flex;
+  flex-direction: column;
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  height: 20vh;
+
+  justify-content: space-around;
+}
+.input-container {
+  display: flex;
+  align-items: center;
+}
+.soc-med {
+  display: flex;
+}
+.fa-paper-plane {
+  margin-left: 10px;
+  color: white;
+  cursor: pointer;
+}
+.copyright {
+  height: 10vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  background: black;
+  font-size: 14px;
+  padding: 0 5vw 0 5vw;
+}
+.email-input {
+  padding: 3px;
+  border: none;
+  border-radius: 8px;
+  font-family: inherit;
+  width: 100%;
+  font-size: 14px;
+}
+@media screen and (max-width: 425px) {
+  .footer {
+    padding: 5vh 5vw 5vh 5vw;
+    gap: 10vw;
+  }
+  .explore {
+    text-align: center;
+  }
+
+  .overview,
+  .company,
+  .explore,
+  .input-email {
+    font-size: 15px;
+    height: 15vh;
+    justify-content: space-around;
+  }
+}

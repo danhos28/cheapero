@@ -59,7 +59,7 @@
 }
 .item-title {
   font-weight: bold;
-  font-size: 24px;
+  font-size: 20px;
 }
 .color-container {
   width: 70%;
@@ -69,6 +69,9 @@
 }
 .item-price {
   font-weight: bold;
+}
+.item-desc {
+  font-size: 16px;
 }
 .color-1,
 .color-2,
@@ -82,4 +85,17 @@
 .color-3:hover {
   transition: all 100ms ease-in;
   transform: scale(1.07);
+}
+@media screen and (max-width: 500px) {
+  .item-title {
+    font-weight: bold;
+    font-size: 18px;
+  }
+  .item-details {
+    width: 95vw;
+    height: 70vh;
+  }
+  .item-desc {
+    font-size: 14px;
+  }
 }

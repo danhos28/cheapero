@@ -9,7 +9,7 @@
   padding-bottom: 1vw;
 }
 .browse > p {
-  font-size: calc(1vw + 0.5rem);
+  font-size: calc(1vw + 0.3rem);
   font-weight: bold;
 }
 .container {
@@ -34,6 +34,7 @@
   background-size: cover;
   background-position: center;
 }
+
 .jackets {
   background-color: rgb(207, 207, 207);
   flex: 1;
@@ -41,7 +42,6 @@
   background-image: url('../img/jackets.jpg');
   background-size: cover;
   background-position: center;
-  transition: all 200ms ease-in;
 }
 .bags {
   background-color: rgb(207, 207, 207);
@@ -50,7 +50,6 @@
   background-image: url('../img/bags.jpg');
   background-size: cover;
   background-position: center;
-  transition: all 200ms ease-in;
 }
 .all {
   background-color: rgb(207, 207, 207);
@@ -60,6 +59,27 @@
   background-image: url('../img/all.jpg');
   background-size: cover;
   background-position: center;
+}
+.shoes > p,
+.jackets > p,
+.bags > p,
+.all > p {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  font-size: calc(2vw + 0.2rem);
+  color: rgb(255, 255, 255);
+  text-shadow: 2px 2px 8px #353535;
+  transition: all 200ms ease-in;
+}
+.shoes > p:hover,
+.jackets > p:hover,
+.bags > p:hover,
+.all > p:hover {
+  opacity: 1;
   transition: all 200ms ease-in;
 }
 .bags:hover,

@@ -24,6 +24,14 @@ export const Home = (props) => {
       <Categories />
       <div className="home">
         <h2>Latest Products</h2>
+        <div className="search">
+          <input
+            type="text"
+            className="item-search"
+            placeholder="search products ..."
+          />
+          <i className="fas fa-search fa-lg"></i>
+        </div>
         <div
           data-aos="fade-down"
           data-aos-easing="ease"

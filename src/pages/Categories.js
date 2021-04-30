@@ -12,11 +12,19 @@ function Categories() {
 
         <div className="container">
           <div className="container-col">
-            <div className="shoes"></div>
-            <div className="jackets"></div>
+            <div className="shoes">
+              <p>Shoes</p>
+            </div>
+            <div className="jackets">
+              <p>Jackets</p>
+            </div>
           </div>
-          <div className="bags"></div>
-          <div className="all"></div>
+          <div className="bags">
+            <p>Bags</p>
+          </div>
+          <div className="all">
+            <p>All</p>
+          </div>
         </div>
       </div>
     </>

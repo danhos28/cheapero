@@ -6,6 +6,7 @@ import { Home } from './pages/Home';
 import Cart from './pages/Cart';
 import Splash from './pages/Splash';
 import Offline from './components/Offline';
+import Footer from './components/Footer';
 
 function App() {
   const [splash, setSplash] = useState(true);
@@ -46,6 +47,7 @@ function App() {
                 <Cart setCart={setCart} cart={cart} />
               </Route>
             </Switch>
+            <Footer />
           </>
         )}
       </Router>
