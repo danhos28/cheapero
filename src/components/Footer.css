@@ -37,6 +37,8 @@
 }
 .soc-med {
   display: flex;
+  width: 60%;
+  justify-content: space-around;
 }
 .fa-paper-plane {
   margin-left: 10px;
