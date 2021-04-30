@@ -1,12 +1,18 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import CartFooter from '../components/CartFooter';
 import CartItem from '../components/CartItem';
 import './Cart.css';
 import { nanoid } from 'nanoid';
+import { TotalPricePay } from '../redux/cartItems';
 
 function Cart(props) {
   const { cartItems } = useSelector((state) => state.cart);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(TotalPricePay());
+  }, [cartItems, dispatch]);
 
   return (
     <div className="items-container">

@@ -79,6 +79,21 @@ registerRoute(
   })
 );
 
+registerRoute(
+  ({ url }) =>
+    url.origin === 'https://ka-f.fontawesome.com/' ||
+    url.origin === 'https://kit.fontawesome.com',
+  new NetworkFirst({
+    cacheName: 'icons',
+    plugin: [
+      new ExpirationPlugin({
+        maxAgeSeconds: 60 * 60 * 24 * 356,
+        maxEntries: 30,
+      }),
+    ],
+  })
+);
+
 // This allows the web app to trigger skipWaiting via
 // registration.waiting.postMessage({type: 'SKIP_WAITING'})
 self.addEventListener('message', (event) => {

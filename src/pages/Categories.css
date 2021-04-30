@@ -1,7 +1,6 @@
 .categories {
   display: flex;
   flex-direction: column;
-  width: 98vw;
   height: 65vh;
   background: rgb(245, 245, 245);
   padding: 3vw;
