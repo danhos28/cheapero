@@ -114,4 +114,10 @@
   .browse > p {
     font-size: calc(1vw + 0.7rem);
   }
+  .shoes > p,
+  .jackets > p,
+  .bags > p,
+  .all > p {
+    font-size: 15px;
+  }
 }
