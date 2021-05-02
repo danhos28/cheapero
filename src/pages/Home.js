@@ -22,7 +22,7 @@ export const Home = (props) => {
     <>
       <Hero />
       <Categories />
-      <div className="home">
+      <div className="home" id="home">
         <h2>Latest Products</h2>
         <div className="search">
           <input

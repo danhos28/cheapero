@@ -1,15 +1,34 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import './Navbar.css';
 import { Link } from 'react-router-dom';
+import { Link as Scroll } from 'react-scroll';
 
 const Navbar = (props) => {
   const [click, setClick] = useState(false);
-
+  const { pathname, hash } = useLocation();
   const handleClick = () => setClick(!click);
 
   const closeNav = () => {
     setClick(false);
   };
+
+  useEffect(() => {
+    // if not a hash link, scroll to top
+    if (hash === '') {
+      window.scrollTo(0, 0);
+    }
+    // else scroll to id
+    else {
+      setTimeout(() => {
+        const id = hash.replace('#', '');
+        const element = document.getElementById(id);
+        if (element) {
+          element.scrollIntoView();
+        }
+      }, 0);
+    }
+  }, [pathname]); // do this on route change
 
   return (
     <>
@@ -19,10 +38,35 @@ const Navbar = (props) => {
         </Link>
         <div className="navbar-container">
           <ul className={click ? 'navbar-items active' : 'navbar-items'}>
-            <Link to="/" className="home-link">
-              <li className="nav-link">Home</li>
-            </Link>
-            <li className="nav-link">Shop</li>
+            {pathname === '/' ? (
+              <Scroll
+                className="scroll"
+                to="hero"
+                smooth={true}
+                duration={1000}
+              >
+                <li className="nav-link">Home</li>
+              </Scroll>
+            ) : (
+              <Link to="/" className="home-link">
+                <li className="nav-link">Home</li>
+              </Link>
+            )}
+            {pathname === '/' ? (
+              <Scroll
+                className="scroll"
+                to="home"
+                smooth={true}
+                duration={1000}
+              >
+                <li className="nav-link">Shop</li>
+              </Scroll>
+            ) : (
+              <Link className="home-link" to="/#home">
+                <li className="nav-link">Shop</li>
+              </Link>
+            )}
+
             <li className="nav-link">Contact</li>
             <li className="nav-link">Login</li>
           </ul>

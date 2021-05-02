@@ -40,8 +40,10 @@
 }
 .home-link {
   text-decoration: none;
-
   color: black;
+}
+.scroll {
+  cursor: pointer;
 }
 .cart-link {
   display: flex;
