@@ -44,11 +44,12 @@ const Navbar = (props) => {
                 to="hero"
                 smooth={true}
                 duration={1000}
+                onClick={closeNav}
               >
                 <li className="nav-link">Home</li>
               </Scroll>
             ) : (
-              <Link to="/" className="home-link">
+              <Link to="/" className="home-link" onClick={closeNav}>
                 <li className="nav-link">Home</li>
               </Link>
             )}
@@ -58,17 +59,21 @@ const Navbar = (props) => {
                 to="home"
                 smooth={true}
                 duration={1000}
+                onClick={closeNav}
               >
                 <li className="nav-link">Shop</li>
               </Scroll>
             ) : (
-              <Link className="home-link" to="/#home">
+              <Link className="home-link" to="/#home" onClick={closeNav}>
                 <li className="nav-link">Shop</li>
               </Link>
             )}
-
-            <li className="nav-link">Contact</li>
-            <li className="nav-link">Login</li>
+            <Link to="/" className="home-link" onClick={closeNav}>
+              <li className="nav-link">Contact</li>
+            </Link>
+            <Link to="/" className="home-link" onClick={closeNav}>
+              <li className="nav-link">Login</li>
+            </Link>
           </ul>
           <Link to="/cart" className="cart-link">
             <i className="fas fa-shopping-cart"></i>
