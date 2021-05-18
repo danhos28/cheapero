@@ -16,9 +16,7 @@ export const cartSlice = createSlice({
     TotalPricePay: (state) => {
       let pay = 0;
       for (let i = 0; i < state.cartItems.length; i++) {
-        pay +=
-          state.cartItems[i].quantity *
-          Number(state.cartItems[i].price.replace(/[^0-9.-]+/g, ''));
+        pay += state.cartItems[i].quantity * state.cartItems[i].price;
       }
       state.totalPriceState = pay;
     },

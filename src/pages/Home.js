@@ -1,22 +1,32 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Cards from '../components/Cards';
 import './Home.css';
 import Aos from 'aos';
-import itemList from '../items/ItemData.js';
+//import itemList from '../items/ItemData.js';
 import 'aos/dist/aos.css';
 import ItemDetails from './ItemDetails';
 import { AnimatePresence } from 'framer-motion';
 import Hero from '../components/Hero';
 import Categories from './Categories';
+import Axios from 'axios';
 
 export const Home = (props) => {
   Aos.init();
-
   const [modalOpen, setModalOpen] = useState(false);
-  const [modalId, setModalId] = useState(1);
+  const [modalItem, setModalItem] = useState([]);
+  const [itemListData, setItemListData] = useState([]);
+  const url = 'http://localhost:1337/products/';
 
-  const itemModal = itemList.filter((item) => item.id === modalId);
-  const { name, imgUrl, desc, price, colors } = itemModal[0];
+  useEffect(() => {
+    Axios.get(url)
+      .then((result) => {
+        setItemListData(result.data);
+      })
+      .catch((err) => {
+        console.log('error: ', err);
+      });
+    console.log();
+  }, []);
 
   return (
     <>
@@ -28,7 +38,7 @@ export const Home = (props) => {
           <input
             type="text"
             className="item-search"
-            placeholder="search products ..."
+            placeholder="search product"
           />
           <i className="fas fa-search fa-lg"></i>
         </div>
@@ -38,18 +48,19 @@ export const Home = (props) => {
           data-aos-duration="1000"
         >
           <div className="products">
-            {itemList.map((item) => {
+            {itemListData.map((item) => {
               return (
                 <Cards
                   key={item.id}
                   id={item.id}
                   name={item.name}
                   price={item.price}
-                  imgUrl={item.imgUrl[0]}
+                  imgUrl={item.imgUrl[0].url}
                   setCart={props.setCart}
                   cart={props.cart}
                   setModalOpen={setModalOpen}
-                  setModalId={setModalId}
+                  itemListData={itemListData}
+                  setModalItem={setModalItem}
                 />
               );
             })}
@@ -60,12 +71,12 @@ export const Home = (props) => {
             <div className="modal">
               <ItemDetails
                 setModalOpen={setModalOpen}
-                itemId={modalId}
-                name={name}
-                imgUrl={imgUrl}
-                price={price}
-                desc={desc}
-                colors={colors}
+                itemId={modalItem[0].id}
+                name={modalItem[0].name}
+                imgUrl={modalItem[0].imgUrl}
+                price={modalItem[0].price}
+                desc={modalItem[0].desc}
+                colors={modalItem[0].colors}
                 setCart={props.setCart}
                 cart={props.cart}
               />

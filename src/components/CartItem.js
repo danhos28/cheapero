@@ -4,8 +4,9 @@ import { useSelector, useDispatch } from 'react-redux';
 import { removeItem } from '../redux/cartItems';
 
 function CartItem(props) {
+  const localUrl = 'http://localhost:1337';
   const { itemId, imgUrl, name, price, quantity, setCart, cart } = props;
-  const totalPrice = quantity * Number(price.replace(/[^0-9.-]+/g, ''));
+  const totalPrice = quantity * price;
   const dispatch = useDispatch();
   const { cartItems } = useSelector((state) => state.cart);
 
@@ -19,7 +20,7 @@ function CartItem(props) {
 
   return (
     <div className="cart-item-container">
-      <img className="item-image" src={imgUrl} alt="item cart" />
+      <img className="item-image" src={localUrl + imgUrl} alt="item cart" />
       <div className="item-name">
         <p>{name}</p>
       </div>

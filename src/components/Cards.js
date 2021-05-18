@@ -5,10 +5,19 @@ import { useDispatch, useSelector } from 'react-redux';
 import { addToCart, counter } from '../redux/cartItems';
 
 const Cards = (props) => {
+  const localUrl = 'http://localhost:1337';
   const dispatch = useDispatch();
   const { cartItems } = useSelector((state) => state.cart);
-  const { id, name, price, imgUrl, setCart, setModalOpen, setModalId } = props;
-
+  const {
+    id,
+    name,
+    price,
+    imgUrl,
+    setCart,
+    setModalOpen,
+    itemListData,
+    setModalItem,
+  } = props;
   const handleCart = () => {
     setCart(props.cart + 1);
 
@@ -34,22 +43,22 @@ const Cards = (props) => {
   };
 
   const modalHandler = () => {
+    setModalItem(itemListData.filter((item) => item.id === id));
     setModalOpen(true);
-    setModalId(id);
   };
 
   return (
     <>
       <div className="cards">
         <img
-          src={imgUrl}
+          src={`${localUrl}${imgUrl}`}
           alt="items"
           className="cards-img"
           onClick={modalHandler}
         />
         <div className="item">
           <p className="name">{name}</p>
-          <p className="price">{price}</p>
+          <p className="price">${price}.00</p>
         </div>
         <Button value="Add to cart" onClick={handleCart} />
       </div>

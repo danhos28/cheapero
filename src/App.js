@@ -7,6 +7,8 @@ import Cart from './pages/Cart';
 import Splash from './pages/Splash';
 import Offline from './components/Offline';
 import Footer from './components/Footer';
+import Register from './pages/Register';
+import Login from './pages/Login';
 
 function App() {
   const [splash, setSplash] = useState(true);
@@ -37,17 +39,25 @@ function App() {
           <Splash />
         ) : (
           <>
-            <Navbar counter={cart} />
             {offline && <Offline />}
             <Switch>
               <Route exact path="/">
+                <Navbar counter={cart} />
                 <Home setCart={setCart} cart={cart} />
+                <Footer />
               </Route>
               <Route exact path="/cart">
+                <Navbar counter={cart} />
                 <Cart setCart={setCart} cart={cart} />
+                <Footer />
+              </Route>
+              <Route exact path="/login">
+                <Login />
+              </Route>
+              <Route exact path="/register">
+                <Register />
               </Route>
             </Switch>
-            <Footer />
           </>
         )}
       </Router>

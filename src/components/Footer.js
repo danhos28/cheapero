@@ -40,8 +40,8 @@ const Footer = () => {
             <Link to="/">
               <i className="fab fa-twitter"></i>
             </Link>
-            <Link>
-              <i class="fab fa-linkedin-in"></i>
+            <Link to="/">
+              <i className="fab fa-linkedin-in"></i>
             </Link>
           </div>
         </div>

@@ -3,14 +3,21 @@ import { useLocation } from 'react-router-dom';
 import './Navbar.css';
 import { Link } from 'react-router-dom';
 import { Link as Scroll } from 'react-scroll';
+import Cookies from 'universal-cookie';
 
 const Navbar = (props) => {
+  const cookies = new Cookies();
   const [click, setClick] = useState(false);
   const { pathname, hash } = useLocation();
   const handleClick = () => setClick(!click);
 
   const closeNav = () => {
     setClick(false);
+  };
+
+  const logoutHandle = () => {
+    cookies.remove('token');
+    cookies.remove('username');
   };
 
   useEffect(() => {
@@ -28,7 +35,7 @@ const Navbar = (props) => {
         }
       }, 0);
     }
-  }, [pathname]); // do this on route change
+  }, [pathname, hash]); // do this on route change
 
   return (
     <>
@@ -71,9 +78,22 @@ const Navbar = (props) => {
             <Link to="/" className="home-link" onClick={closeNav}>
               <li className="nav-link">Contact</li>
             </Link>
-            <Link to="/" className="home-link" onClick={closeNav}>
-              <li className="nav-link">Login</li>
-            </Link>
+            {cookies.get('token') ? (
+              <Link to="/login" className="home-link" onClick={closeNav}>
+                <li className="nav-link" onClick={logoutHandle}>
+                  Logout
+                </li>
+              </Link>
+            ) : (
+              <Link to="/login" className="home-link" onClick={closeNav}>
+                <li className="nav-link">Login</li>
+              </Link>
+            )}
+            {cookies.get('username') && (
+              <Link to="/" className="home-link" onClick={closeNav}>
+                <li className="nav-link-user">{cookies.get('username')}</li>
+              </Link>
+            )}
           </ul>
           <Link to="/cart" className="cart-link">
             <i className="fas fa-shopping-cart"></i>
