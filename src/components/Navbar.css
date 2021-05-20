@@ -6,17 +6,34 @@
   position: fixed;
   top: 0;
   align-items: center;
-  border-bottom: 5px solid black;
-  background-color: #fff;
+  background: transparent;
   z-index: 999;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.205);
+  transition: all 200ms ease-in-out;
+}
+
+.navbar * {
+  color: white;
+  font-size: 18px;
+  text-shadow: 2px 2px 4px rgb(54, 54, 54);
+}
+
+.navbar.active {
+  background: #fff;
+  border-bottom: 5px solid black;
+  transition: all 200ms ease-in-out;
+}
+
+.navbar.active * {
+  color: black;
+  text-shadow: none;
+  font-size: 16px;
 }
 
 .navbar-container {
   display: flex;
   align-items: center;
   width: 60%;
-  font-size: 13px;
+  font-size: 16px;
   font-weight: 800;
 }
 .shop-logo {
@@ -83,14 +100,20 @@
     display: flex;
     flex-direction: column;
     position: absolute;
-    top: 48px;
+    top: 0;
+    padding-top: 15vh;
+    z-index: -1;
     left: -150%;
-    height: calc(100vh - 64px);
+    height: 100vh;
     width: 100vw;
     opacity: 0;
     transition: all 0.7s ease;
     justify-content: flex-start;
-    background-color: #fff;
+    background: #fff;
+  }
+  .navbar * {
+    color: black;
+    text-shadow: none;
   }
   .nav-link,
   .nav-link-user {

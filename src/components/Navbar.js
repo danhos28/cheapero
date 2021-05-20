@@ -8,6 +8,8 @@ import Cookies from 'universal-cookie';
 const Navbar = (props) => {
   const cookies = new Cookies();
   const [click, setClick] = useState(false);
+  const [navbar, setNavbar] = useState(false);
+
   const { pathname, hash } = useLocation();
   const handleClick = () => setClick(!click);
 
@@ -19,6 +21,16 @@ const Navbar = (props) => {
     cookies.remove('token');
     cookies.remove('username');
   };
+
+  const changeNavbar = () => {
+    if (window.scrollY >= 64) {
+      setNavbar(true);
+    } else {
+      setNavbar(false);
+    }
+  };
+
+  window.addEventListener('scroll', changeNavbar);
 
   useEffect(() => {
     // if not a hash link, scroll to top
@@ -39,7 +51,7 @@ const Navbar = (props) => {
 
   return (
     <>
-      <div className="navbar">
+      <div className={navbar ? 'navbar active' : 'navbar'}>
         <Link to="/" className="shop-logo" onClick={closeNav}>
           <img src="images/Cheapero200x200.png" alt="cheapero" />
         </Link>
